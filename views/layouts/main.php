@@ -32,7 +32,7 @@ ltAppAsset::register($this);
 <header>
     <!-- BEGIN .head -->
     <div class="head">
-        <a href="#"><img src="/images/logo.png" alt="Логотип"></a>
+        <a href="/"><img src="/images/logo.png" alt="Логотип"></a>
     </div>
     <!-- END .head -->
 
