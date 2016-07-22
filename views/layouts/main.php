@@ -32,7 +32,9 @@ ltAppAsset::register($this);
 <header>
     <!-- BEGIN .head -->
     <div class="head">
-        <a href="/"><img src="/images/logo.png" alt="Логотип"></a>
+        <a href="<?= Url::home() ?>">
+            <?= Html::img('@web/images/logo.png', ['alt' => 'Julia Krasovska']) ?>
+        </a>
     </div>
     <!-- END .head -->
 
@@ -53,7 +55,7 @@ ltAppAsset::register($this);
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="mainMenu-collapse">
                 <ul class="nav navbar-nav">
-                    <li <?= Yii::$app->controller->route == Yii::$app->defaultRoute ? 'class="active"' : '' ?>><a href="/">Главная</a></li>
+                    <li <?= Yii::$app->controller->route == Yii::$app->defaultRoute ? 'class="active"' : '' ?>><a href="<?= Url::home() ?>">Главная</a></li>
 
                     <?= \app\components\MenuWidget::widget(['tpl' => 'menu']) ?>
 
