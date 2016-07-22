@@ -27,6 +27,7 @@ class CategoryController extends AppController
             throw new HttpException(404, 'такой категории нет.');
 
         $albums = Album::find()->where(['category_id' => $category->id])->all();
+        $this->setMeta($category->title, ['keywords' => $category->keywords, 'description' => $category->description]);
         return $this->render('view', compact('albums'));
     }
 }

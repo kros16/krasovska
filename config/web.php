@@ -7,6 +7,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language' => 'ru-RU',
+    'name' => 'Юлия Красовская. Фотограф. Умань, Украина',
     'defaultRoute' => 'category/index',
     'components' => [
         'request' => [
