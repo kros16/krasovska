@@ -42,8 +42,10 @@ header{
     font-size: 18px;
     text-transform: uppercase;
 }
-.navbar-default .navbar-nav > li.active-link > a{
+.navbar-default .navbar-nav > li.active > a,
+.navbar-default .navbar-nav > li.active > a:hover {
     color: #c28192;
+    background-color: transparent;
 }
 .navbar-default .navbar-nav > li > a:hover{
     color: #c28192;
@@ -285,7 +287,7 @@ label {
     .navbar-nav > li > a{
         transition: all .3s;
     }
-    .navbar-default .navbar-nav > li.active-link > a,
+    .navbar-default .navbar-nav > li.active > a,
     .navbar-default .navbar-nav > li > a:hover,
     .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover{
         color: #fff;

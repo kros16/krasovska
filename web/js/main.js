@@ -3,7 +3,7 @@ $(function(){
   /* ===fixed nav on scroll=== */  
   $('body').append('<div class="navbar-fixed"></div>'); //fix for chrome scroll
 
-  var nav = $('#bs-example-navbar-collapse-1'),
+  var nav = $('#mainMenu-collapse'),
       offset = nav.offset();
   $(window).scroll(function() {
       if ($(window).scrollTop() > offset.top) {
