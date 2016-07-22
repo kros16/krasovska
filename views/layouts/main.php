@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\ltAppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ltAppAsset::register($this);
@@ -22,8 +23,8 @@ ltAppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
     <link href='https://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -36,32 +37,33 @@ ltAppAsset::register($this);
     <!-- END .head -->
 
     <!-- BEGIN .navbar -->
-    <?php
-    NavBar::begin([
-        'brandLabel' => '',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar navbar-default menu',
-            'id' => 'mainMenu'
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
-        'items' => [
-            ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'Портфолио', 'url' => ['/portfolio']],
-            ['label' => 'Серии', 'url' => ['/series'], 'items' => [
-                ['label' => 'Свадебные', 'url' => ['/series/wedding']],
-                ['label' => 'Семейные', 'url' => ['/series/family']],
-                ['label' => 'Разные', 'url' => ['/series/others']],
-            ]],
-            ['label' => 'Услуги', 'url' => ['/services']],
-            ['label' => 'Отзывы', 'url' => ['/responses']],
-            ['label' => 'Контакты', 'url' => ['/site/contact']],
-        ],
-    ]);
-    NavBar::end();
-    ?>
+    <nav class="navbar navbar-default menu" id="mainMenu">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainMenu-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- <a class="navbar-brand" href="#">Brand</a> -->
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="mainMenu-collapse">
+                <ul class="nav navbar-nav">
+                    <li <?= Yii::$app->controller->route == Yii::$app->defaultRoute ? 'class="active"' : '' ?>><a href="/">Главная</a></li>
+
+                    <?= \app\components\MenuWidget::widget(['tpl' => 'menu']) ?>
+
+                    <li><a href="<?= Url::to('/site/services') ?>">Услуги</a></li>
+                    <li><a href="<?= Url::to('/site/responses') ?>">Отзывы</a></li>
+                    <li><a href="<?= Url::to('/site/contact') ?>">Контакты</a></li>
+                </ul>
+            </div> <!-- /.navbar-collapse -->
+        </div> <!-- /.container-fluid -->
+    </nav>
     <!-- END .navbar -->
 </header>
 
