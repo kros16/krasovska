@@ -9,6 +9,12 @@ $config = [
     'language' => 'ru-RU',
     'name' => 'Юлия Красовская. Фотограф. Умань, Украина',
     'defaultRoute' => 'category/index',
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'layout' => 'admin'
+        ],
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -31,6 +37,14 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
+            /*'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'v.o.krasovsky@gmail.com',
+                'password' => 'V*!6g<}md',
+                'port' => '465',
+                'encryption' => 'ssl',
+            ],*/
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

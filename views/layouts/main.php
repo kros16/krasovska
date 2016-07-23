@@ -62,6 +62,11 @@ ltAppAsset::register($this);
                     <li><a href="<?= Url::to('/site/services') ?>">Услуги</a></li>
                     <li><a href="<?= Url::to('/site/responses') ?>">Отзывы</a></li>
                     <li><a href="<?= Url::to('/site/contact') ?>">Контакты</a></li>
+                    <?php if(!Yii::$app->user->isGuest): ?>
+                        <li>
+                            <a href="<?= Url::to(['/site/logout']) ?>" title="Выход из панели управления"><?= Yii::$app->user->identity['username'] ?> (Выход)</a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div> <!-- /.navbar-collapse -->
         </div> <!-- /.container-fluid -->
