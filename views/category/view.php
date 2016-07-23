@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 use yii\helpers\Html;
 use app\models\Category;
+use yii\helpers\Url;
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -11,7 +12,7 @@ use app\models\Category;
             <?php $i=0; foreach ($albums as $album): ?>
                 <?php if($category->type == Category::TYPE_PORTFOLIO): ?>
                     <div class="card-box col-xs-6">
-                        <a href="portfolio-album.html" class="card">
+                        <a href="<?= Url::to(['album/view', 'alias' => $album->alias]) ?>" class="card">
                             <div class="details">
                                 <h4><?= $album->title ?></h4>
                             </div>
@@ -24,7 +25,7 @@ use app\models\Category;
                     <?php endif; ?>
                 <?php else: ?>
                     <div class="card-box col-xs-6 col-sm-4">
-                        <a href="#" class="card">
+                        <a href="<?= Url::to(['album/view', 'alias' => $album->alias]) ?>" class="card">
                             <div class="details">
                                 <h4><?= $album->title ?></h4>
                                 <p><?= Yii::$app->formatter->asDate($album->shooting_date, 'MMMM, Y') ?></p>

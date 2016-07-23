@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Html;
+use yii\helpers\Url;
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -9,7 +10,7 @@ use yii\helpers\Html;
             <div class="cards clearfix">
                 <?php foreach ($lastAlbums as $album): ?>
                 <div class="card-box col-xs-6 col-sm-4">
-                    <a href="#" class="card">
+                    <a href="<?= Url::to(['album/view', 'alias' => $album->alias]) ?>" class="card">
                         <div class="details">
                             <h4><?= $album->title ?></h4>
                             <p><?= Yii::$app->formatter->asDate($album->shooting_date, 'MMMM, Y') ?></p>

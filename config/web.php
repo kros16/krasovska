@@ -48,6 +48,7 @@ $config = [
             'rules' => [
                 'category/<alias:[\w-]+>/page/<page:\d+>' => 'category/view',
                 'category/<alias:[\w-]+>' => 'category/view',
+                'album/<alias:[\w-]+>' => 'album/view',
             ],
         ],
     ],
