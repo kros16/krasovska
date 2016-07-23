@@ -1,37 +1,51 @@
 <?php
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+use app\modules\admin\assets\AppAdminAsset;
+use app\modules\admin\assets\FontAdminAsset;
 use yii\helpers\Url;
+
+$asset = AppAdminAsset::register($this);
+FontAdminAsset::register($this);
 ?>
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang=ru>
+<html lang="<?= Yii::$app->language ?>">
 <head>
-    <meta charset=UTF-8>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="<?= $asset->baseUrl ?>/favicon.ico" type="image/x-icon">
+    <?= Html::csrfMetaTags() ?>
+    <title>Панель управления | <?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
+
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Панель управления сайтом | Юлия Красовская - фотограф в г. Умань, Украина</title>
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <meta name=description content="Панель управления сайтом">
-    <meta name=keywords content="Панель управления сайтом">
-    <link rel="Shortcut Icon" href="http://krasovska.com/admin/templates/images/favicon.ico" type="image/x-icon"/>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600,400&amp;subset=latin,cyrillic' rel=stylesheet type='text/css'>
-    <link rel=stylesheet href="http://krasovska.com/admin/templates/css/A.bootstrap.min.css+bootstrap-theme.min.css+font-awesome.min.css+style.css,,qv==1,Mcc.lgrHherEhn.css.pagespeed.cf.wOJwT_IN1m.css">
 </head>
 <body>
+<?php $this->beginBody() ?>
 <footer id=footer class=container-fluid>
     <div class=row>
-        <p class=left><a class=nav-active href="http://krasovska.com/admin" title="Панель управления"><i class="fa fa-home fa-fw"></i><span>Панель управления</span></a></p>
+        <p class=left><a class=nav-active href="<?= Url::to(['/admin']) ?>" title="Панель управления"><i class="fa fa-5x fa-home fa-fw"></i><span>Панель управления</span></a></p>
         <p class=user>
-            <a href="http://krasovska.com/" title="Перейти на сайт" target=_blank><i class="fa fa-mail-forward">&nbsp;&nbsp;</i>На сайт</a>&nbsp;|&nbsp;
+            <a href="<?= Url::home() ?>" title="Перейти на сайт" target=_blank><i class="fa fa-mail-forward">&nbsp;&nbsp;</i>На сайт</a>&nbsp;|&nbsp;
             <?php if(!Yii::$app->user->isGuest): ?>
             <a href="<?= Url::to(['/site/logout']) ?>" title="Выход из панели управления"><?= Yii::$app->user->identity['username'] ?> (Выход)</a>
             <?php endif; ?>
         </p>
     </div>
 </footer>
-<aside class="container-fluid expanded">
+<aside class="container-fluid <?php if(isset($_COOKIE['expanded']) AND $_COOKIE['expanded']) echo "expanded"; ?>">
     <div class=row>
         <ul id=menu>
-            <li><a href="http://krasovska.com/admin?view=main_slider" title="Слайдер"><i class="fa fa-play fa-fw"></i><span>&nbsp;&nbsp;Слайдер</span></a></li>
             <li><a href="http://krasovska.com/admin?view=galleries"><i class="fa fa-photo fa-fw"></i><span>&nbsp;&nbsp;Галереи</span></a>
                 <ul>
                     <li><a href="http://krasovska.com/admin?view=galleries">Все галереи</a></li>
@@ -71,7 +85,8 @@ use yii\helpers\Url;
         </ul>
     </div>
 </aside>
-<main class=expand>
+
+<main <?php if(isset($_COOKIE['expanded']) AND $_COOKIE['expanded']) echo 'class="expand"'; ?> >
     <h2></h2>
     <div class=clearfix></div>
     <div class=content>
@@ -109,8 +124,8 @@ use yii\helpers\Url;
     <p class=ver>Версия 1.0</p>
 </main>
 <div id=preloader><i class="fa fa-spinner fa-spin fa-4x"></i></div>
-<script src="http://krasovska.com/admin/templates/js/jquery.min.js.pagespeed.jm.YSzgc-BSX9.js"></script>
-<script src="http://krasovska.com/admin/templates/js/jquery-ui.min.js+jquery.cookie.js+workscripts.js.pagespeed.jc.OQVcTIdyGh.js"></script>
 
+<?php $this->endBody() ?>
 </body>
 </html>
+<?php $this->endPage() ?>

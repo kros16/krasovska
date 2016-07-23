@@ -13,6 +13,7 @@ class DefaultController extends AppAdminController
      */
     public function actionIndex()
     {
+        $this->view->title = 'Главная';
         return $this->render('index');
     }
 }

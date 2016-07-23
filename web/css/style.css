@@ -43,11 +43,13 @@ header{
     text-transform: uppercase;
 }
 .navbar-default .navbar-nav > li.active > a,
-.navbar-default .navbar-nav > li.active > a:hover {
+.navbar-default .navbar-nav > li.active > a:hover,
+.navbar-default .navbar-nav > li.active > a:focus {
     color: #c28192;
     background-color: transparent;
 }
-.navbar-default .navbar-nav > li > a:hover{
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
     color: #c28192;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover{
