@@ -22,6 +22,11 @@ use yii\helpers\Html;
             <?php endif; ?>
             <?php endforeach; ?>
         </div>
+        <?php
+        echo \yii\widgets\LinkPager::widget([
+            'pagination' => $pages,
+        ]);
+        ?>
         <?php else: ?>
             <div class="alert alert-info" role="alert"><strong>Добро пожаловать!</strong> Совсем скоро тут будут новые фотографии.
             </div>

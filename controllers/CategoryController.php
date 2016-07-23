@@ -10,6 +10,7 @@ namespace app\controllers;
 use app\models\Category;
 use app\models\Album;
 use Yii;
+use yii\data\Pagination;
 use yii\web\HttpException;
 
 class CategoryController extends AppController
@@ -26,8 +27,11 @@ class CategoryController extends AppController
         if(empty($category))
             throw new HttpException(404, 'такой категории нет.');
 
-        $albums = Album::find()->where(['category_id' => $category->id])->all();
+//        $albums = Album::find()->where(['category_id' => $category->id])->all();
+        $query = Album::find()->where(['category_id' => $category->id]);
+        $pages = new Pagination(['totalCount' => $query->count(), 'forcePageParam' => false, 'pageSizeParam' => false]);
+        $albums = $query->offset($pages->offset)->limit($pages->limit)->all();
         $this->setMeta($category->title, ['keywords' => $category->keywords, 'description' => $category->description]);
-        return $this->render('view', compact('albums'));
+        return $this->render('view', compact('albums', 'pages'));
     }
 }

@@ -257,6 +257,19 @@ label {
     color: #fff;
 }
 
+.pagination > li > a,
+.pagination > li > a:hover {
+    color: #c28192;
+}
+.pagination > .active > a,
+.pagination > .active > a:hover {
+    background-color: #c28192;
+    border-color: #c28192;
+}
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+    z-index: inherit;
+}
+
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
     

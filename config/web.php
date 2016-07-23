@@ -46,7 +46,8 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'category/<alias:[\w-]+>' => 'category/view'
+                'category/<alias:[\w-]+>/page/<page:\d+>' => 'category/view',
+                'category/<alias:[\w-]+>' => 'category/view',
             ],
         ],
     ],
