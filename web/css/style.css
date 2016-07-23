@@ -75,7 +75,7 @@ header{
 .cards {
     margin: 0 -3px 20px;
 }
-.cards > div{
+.cards > div.card-box{
     padding: 6px;
 }
 .card{

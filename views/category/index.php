@@ -8,7 +8,7 @@ use yii\helpers\Html;
         <?php if( !empty($lastAlbums) ): ?>
             <div class="cards clearfix">
                 <?php foreach ($lastAlbums as $album): ?>
-                <div class="col-xs-6 col-sm-4">
+                <div class="card-box col-xs-6 col-sm-4">
                     <a href="#" class="card">
                         <div class="details">
                             <h4><?= $album->title ?></h4>
