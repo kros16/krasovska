@@ -306,8 +306,14 @@ label {
         color: #fff;
         background-color: #c28192;
     }
+
+    .card .details {
+        padding: 5px 0 0;
+        overflow: hidden;
+    }
     .card .details h4{
         font-size: 18px;
+        white-space: nowrap;
     }
     .card .details p{
         color: #aaa;
