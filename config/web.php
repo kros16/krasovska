@@ -69,6 +69,12 @@ $config = [
                 'album/<alias:[\w-]+>' => 'album/view',
             ],
         ],
+        'reCaptcha' => [
+            'name' => 'reCaptcha',
+            'class' => 'himiklab\yii2\recaptcha\ReCaptcha',
+            'siteKey' => '6LfvziUTAAAAAPAv58rNBdRI1e6iVmZbSKTVFUHV',
+            'secret' => '6LfvziUTAAAAAPcBTGyDIm8vxT_PLKIEOw0kBplS',
+        ],
     ],
     'params' => $params,
 ];

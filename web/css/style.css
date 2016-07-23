@@ -76,6 +76,7 @@ header{
 }
 .content-title {
     margin-top: 0;
+    margin-bottom: 20px;
     position: relative;
     color: #c28192;
 }
@@ -237,7 +238,7 @@ p.copy{
 }
 .form-item {
     min-width: 100%;
-    padding: 9px;
+    padding: 7px;
     border: 1px solid #e4e0da;
     border-radius: 5px;
     background-color: #FBFCFB;
@@ -260,9 +261,31 @@ textarea.form-item {
 label {
     font-weight: 100;
 }
-.required b {
+.required > label:after {
+    content: ' *';
     color: #c28192;
+    font-weight: bold;
 }
+.has-error .control-label,
+.has-success .control-label {
+    color: inherit;
+}
+.has-error .form-item {
+    border-color: #a94442;
+}
+.has-success .form-item {
+    border-color: #3c763d;
+}
+.help-block {
+    font-size: 16px;
+}
+textarea {
+    resize: vertical;
+}
+.g-recaptcha > div {
+    height: inherit !important;
+}
+
 .btn {
     transition: all .3s;
 }
