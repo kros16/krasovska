@@ -11,6 +11,9 @@ use yii\db\ActiveRecord;
 
 class Category extends ActiveRecord
 {
+    const TYPE_PORTFOLIO = '0';
+    const TYPE_SERIES = '1';
+
     public static function tableName()
     {
         return 'category';

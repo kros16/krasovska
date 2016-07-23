@@ -32,6 +32,6 @@ class CategoryController extends AppController
         $pages = new Pagination(['totalCount' => $query->count(), 'forcePageParam' => false, 'pageSizeParam' => false]);
         $albums = $query->offset($pages->offset)->limit($pages->limit)->all();
         $this->setMeta($category->title, ['keywords' => $category->keywords, 'description' => $category->description]);
-        return $this->render('view', compact('albums', 'pages'));
+        return $this->render('view', compact('albums', 'pages', 'category'));
     }
 }
