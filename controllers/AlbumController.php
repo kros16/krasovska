@@ -20,13 +20,11 @@ class AlbumController extends AppController
         if(empty($album))
             throw new HttpException(404, 'такого альбома нет.');
 
-        $related = Album::find()->where(['category_id' => $album->category->id])->andWhere(['not in', 'id', $album->id])->all();
+        $related = Album::findRelated($album->id, $album->category_id);
 
         $this->setMeta($album->title, ['keywords' => $album->keywords, 'description' => $album->description]);
 
-        if( $album->type == Album::TYPE_SERIES )
-            return $this->render('view-series', compact('album', 'related'));
-        else
-            return $this->render('view', compact('album', 'related'));
+        $view = $album->type == Album::TYPE_SERIES ? 'view-series' : 'view';
+        return $this->render($view, compact('album', 'related'));
     }
 }

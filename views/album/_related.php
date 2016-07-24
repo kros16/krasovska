@@ -18,6 +18,9 @@ use yii\web\JqueryAsset;
                         <a href="<?= Url::to(['album/view', 'alias' => $item->alias]) ?>" class="card">
                             <div class="details">
                                 <h4><?= $item->title ?></h4>
+                                <?php if($item->shooting_date): ?>
+                                    <p><?= Yii::$app->formatter->asDate($item->shooting_date, 'MMMM, Y') ?></p>
+                                <?php endif; ?>
                             </div>
                             <?= Html::img("@web/images/albums/{$item->img}", ['alt' => $item->title]) ?>
                         </a>

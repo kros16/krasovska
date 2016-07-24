@@ -42,4 +42,20 @@ class Album extends ActiveRecord
             ->limit($limit)
             ->all();
     }
+
+    /**
+     * @param $id
+     * @param $category_id
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function findRelated($id, $category_id)
+    {
+        return self::find()
+            ->select(['alias', 'title', 'img', 'shooting_date'])
+            ->where(['category_id' => $category_id])
+            ->andWhere(['not in', 'id', $id])
+            ->andWhere(['visible' => static::VISIBLE_ON])
+            ->orderBy(['position' => SORT_ASC])
+            ->all();
+    }
 }
