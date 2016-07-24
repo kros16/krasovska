@@ -79,6 +79,7 @@ header{
     margin-bottom: 20px;
     position: relative;
     color: #c28192;
+    font-family: 'Lobster', cursive;
 }
 .content-title > span{
     background: #fbfcfb;

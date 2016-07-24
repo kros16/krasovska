@@ -8,9 +8,11 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\assets\FontAppAsset;
 use app\assets\ltAppAsset;
 use yii\helpers\Url;
 
+FontAppAsset::register($this);
 AppAsset::register($this);
 ltAppAsset::register($this);
 ?>
@@ -25,7 +27,6 @@ ltAppAsset::register($this);
     <link rel="icon" href="/images/favicon.png">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link href='https://fonts.googleapis.com/css?family=Cuprum&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <?php $this->head() ?>
 </head>
 <body>
