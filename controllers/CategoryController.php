@@ -17,7 +17,9 @@ class CategoryController extends AppController
 {
     public function actionIndex()
     {
-        $lastAlbums = Album::find()->where(['type' => Album::TYPE_SERIES])->orderBy(['id' => SORT_DESC])->limit(6)->all();
+        $album = new Album();
+        $lastAlbums = $album->findLast();
+        $this->setMeta();
         return $this->render('index', compact('lastAlbums'));
     }
 
