@@ -15,7 +15,7 @@ class FontAppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        '//fonts.googleapis.com/css?family=Lobster|Cuprum&subset=latin,cyrillic',
+        '//fonts.googleapis.com/css?family=Lobster|Cuprum:400,700&subset=latin,cyrillic',
     ];
     public $cssOptions = [
         'type' => 'text/css',
