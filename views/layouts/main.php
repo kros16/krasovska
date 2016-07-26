@@ -35,8 +35,8 @@ ltAppAsset::register($this);
 <header>
     <!-- BEGIN .head -->
     <div class="head">
-        <a href="<?= Url::home() ?>">
-            <?= Html::img('@web/images/logo.png', ['alt' => 'Julia Krasovska']) ?>
+        <a href="<?= Url::home() ?>" class="logo-link">
+            <?= Html::img('@web/images/logo.png', ['alt' => 'Julia Krasovska', 'width' => '212', 'height' => '163']) ?>
         </a>
     </div>
     <!-- END .head -->
@@ -81,6 +81,10 @@ ltAppAsset::register($this);
 <div class="content">
 
     <?= $content; ?>
+
+    <div class="loader">
+        <div class="loader_inner"></div>
+    </div>
 
     <hr>
     <footer>

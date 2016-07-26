@@ -7,6 +7,7 @@ body{
     color: #858585;
     background: #fbfcfb;
     font-weight: normal;
+    overflow-y: scroll;
 }
 img{
     max-width: 100%;
@@ -22,12 +23,20 @@ header{
     /*overflow: hidden;*/
 }
 .head{
+    position: relative;
     height: 394px;
     text-align: center;
     background: url(../images/head-bg.png) no-repeat center center;
 }
-.head > a {
-    line-height: 394px;
+.head > a.logo-link {
+    width: 212px;
+    height: 163px;
+    display: block;
+    line-height: 0;
+    position: absolute;
+    top: 116px;
+    left: 50%;
+    margin-left: -106px;
 }
 
 .menu{
@@ -72,6 +81,7 @@ header{
     max-width: 970px;
     padding: 0 20px;
     margin: 0 auto;
+    position: relative;
     /*overflow: hidden;*/
 }
 .content-title {
@@ -315,6 +325,35 @@ textarea {
 }
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
     z-index: inherit;
+}
+
+.content.preload-state {
+    height: 100px;
+    overflow: hidden;
+}
+.loader {
+    background: #fbfcfb;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+.loader .loader_inner {
+    background-image: url(../images/preloader.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 60px;
+    width: 60px;
+    margin-top: -30px;
+    margin-left: -30px;
+    left: 50%;
+    top: 35px;
+    position: absolute;
 }
 
 /* Large Devices, Wide Screens */

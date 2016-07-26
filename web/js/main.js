@@ -1,3 +1,8 @@
+$(window).load(function() {
+    $(".loader_inner").fadeOut("slow");
+    $(".loader").delay(400).fadeOut("slow");
+});
+
 $(function(){
 
   /* ===fixed nav on scroll=== */  
