@@ -21,7 +21,7 @@ use app\models\Service;
         <h3 class="text-center">Свадебная фотосъемка:</h3>
 
         <div class="wedding-items row">
-            <?php foreach ($services as $package ): ?>
+            <?php $i=0; foreach ($services as $package ): ?>
             <?php if($package->type != Service::TYPE_PACKAGE) continue; ?>
             <div class="service-item-wrap col-sm-4 col-md-4">
                 <div class="service-item">
@@ -30,6 +30,9 @@ use app\models\Service;
                     <h3 class="text-center"><?= number_format($package->price, 0, ',', ' ') ?>&nbsp;<span>грн.</span></h3>
                 </div> <!-- /.service-item -->
             </div> <!-- /.service-item-wrap -->
+                <?php $i++; if( $i % 3 == 0 ): ?>
+                    <div class="clearfix"></div>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div> <!-- /.wedding-items -->
         <div class="clearfix"></div>
