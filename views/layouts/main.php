@@ -63,7 +63,7 @@ ltAppAsset::register($this);
                     <?= \app\components\MenuWidget::widget(['tpl' => 'menu']) ?>
 
                     <li><a href="<?= Url::to('/service') ?>">Услуги</a></li>
-                    <li><a href="<?= Url::to('/site/responses') ?>">Отзывы</a></li>
+                    <li><a href="<?= Url::to('/response') ?>">Отзывы</a></li>
                     <li><a href="<?= Url::to('/site/contact') ?>">Контакты</a></li>
                     <?php if(!Yii::$app->user->isGuest): ?>
                         <li>

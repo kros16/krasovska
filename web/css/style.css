@@ -356,6 +356,13 @@ textarea {
     position: absolute;
 }
 
+.response-item {
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
     

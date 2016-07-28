@@ -64,6 +64,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'response/page/<page:\d+>' => 'response/index',
                 'category/<alias:[\w-]+>/page/<page:\d+>' => 'category/view',
                 'category/<alias:[\w-]+>' => 'category/view',
                 'album/<alias:[\w-]+>' => 'album/view',
