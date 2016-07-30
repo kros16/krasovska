@@ -453,7 +453,7 @@ main a:hover, main a:focus {
     display: inline-block;
 }
 .button-large {
-    padding: 7px 9px;
+    padding: 7px 15px;
 }
 input.button[disabled="disabled"], input.button-large[disabled="disabled"] {
     background: #dfdfdf;
@@ -486,6 +486,22 @@ input.button[disabled="disabled"], input.button-large[disabled="disabled"] {
     border: 1px solid #2ea2cc;
     background: #2ea2cc;
     text-decoration: none;
+}
+.button-green {
+    background: #5cb85c;
+    border: 1px solid #4cae4c;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+}
+.button-green:hover, .button-green:focus {
+    border: 1px solid #398439;
+    background: #449d44;
+    text-decoration: none;
+}
+.grid-view > .table {
+    margin-bottom: 0;
 }
 .output table {
     border-collapse: collapse;
@@ -534,6 +550,9 @@ input.button[disabled="disabled"], input.button-large[disabled="disabled"] {
 }
 .output td.center {
     text-align: center;
+}
+.table > tbody > tr > td {
+    vertical-align: middle;
 }
 
 /* ===MODAL=== */
@@ -703,3 +722,47 @@ div.statistic > div p span{
     z-index: 999999;
 }
 /* ===end Сортировка фотографий=== */
+
+
+.form-group label.help {
+    border-bottom: 1px dashed #888;
+    cursor: help;
+}
+
+.required > label:after {
+    content: ' *';
+    color: #a94442;
+    font-weight: bold;
+}
+
+.notification {
+    position: fixed;
+    top: 0;
+    z-index: 999999;
+    width: 400px;
+    left: 50%;
+    margin-left: -200px;
+    text-align: center;
+    line-height: 21px;
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 35px 8px 8px;
+    border-radius: 0 0 5px 5px;
+}
+.notification-success {
+    background-color: #2cb11c;
+    border-color: #2cb11c;
+}
+.notification-error {
+    background-color: #c9302c;
+    border-color: #c9302c;
+}
+
+.form-group + .hint {
+    margin-top: -10px;
+    margin-bottom: 5px;
+    line-height: normal;
+    display: block;
+    color: #777;
+    font-size: 12px;
+}

@@ -46,13 +46,13 @@ FontAdminAsset::register($this);
 <aside class="container-fluid <?php if(isset($_COOKIE['expanded']) AND $_COOKIE['expanded']) echo "expanded"; ?>">
     <div class=row>
         <ul id=menu>
-            <li><a href="http://krasovska.com/admin?view=galleries"><i class="fa fa-photo fa-fw"></i><span>&nbsp;&nbsp;Галереи</span></a>
+            <li><a href="<?= Url::to(['category/index']) ?>"><i class="fa fa-list fa-fw"></i><span>&nbsp;&nbsp;Категории</span></a>
                 <ul>
-                    <li><a href="http://krasovska.com/admin?view=galleries">Все галереи</a></li>
-                    <li><a href="http://krasovska.com/admin?view=add_gallery">Добавить</a></li>
+                    <li><a href="<?= Url::to(['category/index']) ?>">Все категории</a></li>
+                    <li><a href="<?= Url::to(['category/create']) ?>">Добавить</a></li>
                 </ul>
             </li>
-            <li><a href="http://krasovska.com/admin?view=services"><i class="fa fa-credit-card fa-fw"></i><span>&nbsp;&nbsp;Услуги</span></a>
+            <!--<li><a href="http://krasovska.com/admin?view=services"><i class="fa fa-credit-card fa-fw"></i><span>&nbsp;&nbsp;Услуги</span></a>
                 <ul>
                     <li><a href="http://krasovska.com/admin?view=services">Все услуги</a></li>
                     <li><a href="http://krasovska.com/admin?view=add_service">Добавить услугу</a></li>
@@ -81,46 +81,23 @@ FontAdminAsset::register($this);
             </li>
             <li>
                 <a href="#" class="collaps_menu open" title="Показать/Скрыть">
-                    <i class="fa fa-chevron-circle-right fa-fw"></i><span>&nbsp;&nbsp;Скрыть</span></a></li>
+                    <i class="fa fa-chevron-circle-right fa-fw"></i><span>&nbsp;&nbsp;Скрыть</span></a></li>-->
         </ul>
     </div>
 </aside>
 
 <main <?php if(isset($_COOKIE['expanded']) AND $_COOKIE['expanded']) echo 'class="expand"'; ?> >
-    <h2></h2>
-    <div class=clearfix></div>
-    <div class=content>
-        <div class=content-header>
-            <h2>Добро пожаловать в панель управления сайтом!</h2>
-            <h3>Вы можете сразу воспользоваться ссылками ниже:</h3>
+
+    <?php if (Yii::$app->session->hasFlash('success')): ?>
+        <div class="alert notification notification-success alert-dismissable" role="alert">
+            <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <i class="glyphicon glyphicon-ok" aria-hidden="true"></i>
+            <?php echo Yii::$app->session->getFlash('success'); ?>
         </div>
-        <div class=container-fluid>
-            <div class=row>
-                <div class="col-sm-4 hotlinks">
-                    <p>Добавить новую</p>
-                    <ul>
-                        <li><i class="fa fa-photo fa-fw"></i>&nbsp;&nbsp;<a href="http://krasovska.com/admin?view=add_gallery">Галерею</a></li>
-                        <li><i class="fa fa-credit-card fa-fw"></i>&nbsp;&nbsp;<a href="#">Услугу</a></li>
-                        <li><i class="fa fa-leanpub fa-fw"></i>&nbsp;&nbsp;<a href="#">Страницу</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 hotlinks">
-                    <p>Другие</p>
-                    <ul>
-                        <li><i class="fa fa-play fa-fw"></i>&nbsp;&nbsp;<a href="http://krasovska.com/admin?view=main_slider">Слайдер на главной</a></li>
-                        <li><i class="fa fa-eye fa-fw"></i>&nbsp;&nbsp;<a href="http://krasovska.com/" target=_blank>Перейти на сайт</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 hotlinks">
-                    <p>Страницы</p>
-                    <ul>
-                        <li><i class="fa fa-leanpub fa-fw"></i>&nbsp;&nbsp;<a href="http://krasovska.com/admin?view=pages">Все страницы</a></li>
-                        <li><i class="fa fa-file-text-o fa-fw"></i>&nbsp;&nbsp;<a href="http://krasovska.com/admin?view=add_page">Добавить</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php endif; ?>
+
+    <?= $content ?>
+
     <p class=ver>Версия 1.0</p>
 </main>
 <div id=preloader><i class="fa fa-spinner fa-spin fa-4x"></i></div>

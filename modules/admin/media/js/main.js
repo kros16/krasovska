@@ -1,7 +1,7 @@
 $( document ).ready(function(){
 
     setTimeout(function() {
-        $(".success").fadeOut(500);
+        $(".notification-success").fadeOut(500);
     }, 5000);
 
     /* ===COLLAPS MENU=== */
