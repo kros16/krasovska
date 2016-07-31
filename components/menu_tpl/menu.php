@@ -4,8 +4,8 @@ use app\models\Category;
 <?php if( $category['visible'] == Category::VISIBLE_ON ): ?>
 
     <?php if( isset($category['children']) ): ?>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $category['title'] ?><span class="caret"></span></a>
+        <li class="dropdown <?php if($category['parent_id']) echo ' dropdown-submenu' ?>">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $category['title'] ?><?php if(!$category['parent_id']) echo '<span class="caret"></span>' ?></a>
             <ul class="dropdown-menu">
                 <?= $this->getMenuHtml($category['children']); ?>
             </ul>
