@@ -52,6 +52,12 @@ FontAdminAsset::register($this);
                     <li><a href="<?= Url::to(['category/create']) ?>">Добавить</a></li>
                 </ul>
             </li>
+            <li><a href="<?= Url::to(['album/index']) ?>"><i class="fa fa-photo fa-fw"></i><span>&nbsp;&nbsp;Альбомы</span></a>
+                <ul>
+                    <li><a href="<?= Url::to(['album/index']) ?>">Все альбомы</a></li>
+                    <li><a href="<?= Url::to(['album/create']) ?>">Добавить</a></li>
+                </ul>
+            </li>
             <!--<li><a href="http://krasovska.com/admin?view=services"><i class="fa fa-credit-card fa-fw"></i><span>&nbsp;&nbsp;Услуги</span></a>
                 <ul>
                     <li><a href="http://krasovska.com/admin?view=services">Все услуги</a></li>
@@ -78,10 +84,10 @@ FontAdminAsset::register($this);
                     <li><a href="http://krasovska.com/admin?view=users">Все пользователи</a></li>
                     <li><a href="http://krasovska.com/admin?view=add_user">Добавить пользователя</a></li>
                 </ul>
-            </li>
+            </li>-->
             <li>
                 <a href="#" class="collaps_menu open" title="Показать/Скрыть">
-                    <i class="fa fa-chevron-circle-right fa-fw"></i><span>&nbsp;&nbsp;Скрыть</span></a></li>-->
+                    <i class="fa fa-chevron-circle-right fa-fw"></i><span>&nbsp;&nbsp;Скрыть</span></a></li>
         </ul>
     </div>
 </aside>
