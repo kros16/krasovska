@@ -86,6 +86,9 @@ $config = [
             'siteKey' => '6LfvziUTAAAAAPAv58rNBdRI1e6iVmZbSKTVFUHV',
             'secret' => '6LfvziUTAAAAAPcBTGyDIm8vxT_PLKIEOw0kBplS',
         ],
+        'assetManager' => [
+            'appendTimestamp' => true,
+        ],
     ],
     'params' => $params,
 ];
