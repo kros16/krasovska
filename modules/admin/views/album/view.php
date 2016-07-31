@@ -44,7 +44,7 @@ $this->title = $model->title;
                 'title',
                 [
                     'attribute' => 'image',
-                    'value' => "<img src='{$img->getUrl()}'>",
+                    'value' => "<img src='{$img->getUrl('300x215')}'>",
                     'format' => 'html'
                 ],
                 [

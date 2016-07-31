@@ -39,7 +39,7 @@ $this->title = 'Альбомы';
                     [
                         'attribute' => 'title',
                         'value' => function($data){
-                            return Html::a($data->title, ['view', 'id' => $data->id], ['class' => 'btn-block']);
+                            return Html::a("<img style='margin-right: 10px; border:1px solid #eee' src='{$data->getImage()->getUrl('35x35')}'>" .$data->title, ['view', 'id' => $data->id], ['class' => 'btn-block']);
                         },
                         'format' => 'html'
                     ],
