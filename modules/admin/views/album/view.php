@@ -35,29 +35,13 @@ $this->title = $model->title;
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
-                'id',
+                //'id',
                 [
                     'attribute' => 'category_id',
                     'value' => $model->category->title,
                 ],
                 'alias',
-                'title',
-                [
-                    'attribute' => 'image',
-                    'value' => "<img src='{$img->getUrl('300x215')}'>",
-                    'format' => 'html'
-                ],
-                [
-                    'attribute' => 'gallery',
-                    'value'  => call_user_func(function ($images) {
-                        $str = '';
-                        foreach($images as $img){
-                            $str .= "<img style='margin: 0 5px 5px 0;' src='{$img->getUrl('75x75')}'>";
-                        }
-                        return $str;
-                    }, $images),
-                    'format' => 'html'
-                ],
+                //'title',
                 'shooting_date',
                 'position',
                 [
@@ -66,6 +50,23 @@ $this->title = $model->title;
                 ],
                 'keywords',
                 'description',
+                [
+                    'attribute' => 'image',
+                    'value' => "<img class='img img-mb-0' src='{$img->getUrl('300x215')}'>",
+                    'format' => 'html'
+                ],
+                [
+                    'attribute' => 'gallery',
+                    'value'  => call_user_func(function ($images) {
+                        $str = '';
+                        foreach($images as $img){
+                            if($img['isMain'] OR $img['urlAlias'] == 'placeHolder') continue;
+                            $str .= "<img class='img' src='{$img->getUrl('150x150')}'>";
+                        }
+                        return $str;
+                    }, $images),
+                    'format' => 'html'
+                ],
             ],
         ]) ?>
 

@@ -149,6 +149,20 @@ class AlbumController extends AppAdminController
         return $this->redirect(['index']);
     }
 
+    public function actionRemoveImage($id)
+    {
+        $model = $this->findModel($id);
+        $imgID = Yii::$app->request->get('img');
+
+        foreach($model->getImages() as $img){
+            if($img->id == $imgID){
+                $model->removeImage($img);//will set current image main
+                Yii::$app->session->setFlash('success', "Картинка удалена");
+            }
+        }
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+
     /**
      * Finds the Album model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

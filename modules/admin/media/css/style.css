@@ -770,3 +770,16 @@ div.statistic > div p span{
     color: #777;
     font-size: 12px;
 }
+
+img.img {
+    border: 1px solid #eee;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+img.img-mb-0 {
+    margin-bottom: 0;
+}

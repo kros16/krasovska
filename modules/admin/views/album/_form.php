@@ -45,7 +45,12 @@ use yii\widgets\ActiveForm;
         <div class="col-sm-6 col-md-5 col-lg-4">
             <?= $form->field($model, 'image')->fileInput(['accept' => 'image/*']) ?>
             <div class="form-group">
-                <img src="<?= $model->getImage()->getUrl() ?>">
+                <?php $image = $model->getImage() ?>
+                <?php if( $model->isNewRecord OR $image['urlAlias'] == 'placeHolder'): ?>
+                    <img class="img" src="<?= $model->getImage()->getUrl('300x215') ?>">
+                <?php else: ?>
+                    <?= Html::a("<img class='img' src='{$image->getUrl('300x215')}'>", ['remove-image', 'id' => $model->id, 'img' => $image->id], ['title' => 'Удалить картинку', 'class' => 'del']) ?>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -55,7 +60,13 @@ use yii\widgets\ActiveForm;
                 <?php
                 $images = $model->getImages();
                 foreach($images as $img){
-                    echo "<img style='margin: 0 5px 5px 0;' src='{$img->getUrl('75x75')}'>";
+                    if($img['isMain'] OR $img['urlAlias'] == 'placeHolder') continue;
+                    if( $model->isNewRecord OR $img['urlAlias'] == 'placeHolder') {
+                        echo "<img class='img' src='{$img->getUrl('100x100')}'>";
+                    }else{
+                        echo Html::a("<img class='img' src='{$img->getUrl('100x100')}'>", ['remove-image', 'id' => $model->id, 'img' => $img->id], ['title' => 'Удалить картинку', 'class' => 'del']);
+                    }
+
                 }
                 ?>
             </div>
