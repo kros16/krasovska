@@ -17,6 +17,15 @@ class Album extends ActiveRecord
     const VISIBLE_ON = '1';
     const VISIBLE_OFF = '0';
 
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
+        ];
+    }
+
     public static function tableName()
     {
         return 'album';
@@ -35,7 +44,7 @@ class Album extends ActiveRecord
     public function findLast($type = self::TYPE_SERIES, $limit = 6)
     {
         return self::find()
-            ->select(['alias', 'title', 'img', 'shooting_date'])
+//            ->select(['alias', 'title', 'img', 'shooting_date'])
             ->where(['type' => $type])
             ->andWhere(['visible' => static::VISIBLE_ON])
             ->orderBy(['id' => SORT_DESC])
@@ -51,7 +60,7 @@ class Album extends ActiveRecord
     public static function findRelated($id, $category_id)
     {
         return self::find()
-            ->select(['alias', 'title', 'img', 'shooting_date'])
+//            ->select(['alias', 'title', 'img', 'shooting_date'])
             ->where(['category_id' => $category_id])
             ->andWhere(['not in', 'id', $id])
             ->andWhere(['visible' => static::VISIBLE_ON])

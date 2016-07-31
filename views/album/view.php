@@ -13,66 +13,14 @@ use yii\web\JqueryAsset;
     <div class="row">
         <h2 class="text-center content-title"><span><?= $album->title ?></span></h2>
         <div class="cards clearfix">
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 0);" class="card">
-                    <img src="/images/photo/1.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 1);" class="card">
-                    <img src="/images/photo/2.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 2);" class="card">
-                    <img src="/images/photo/1.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 0);" class="card">
-                    <img src="/images/photo/1.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 0);" class="card">
-                    <img src="/images/photo/1.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 0);" class="card">
-                    <img src="/images/photo/2.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 0);" class="card">
-                    <img src="/images/photo/3.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 0);" class="card">
-                    <img src="/images/photo/1.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 0);" class="card">
-                    <img src="/images/photo/1.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 0);" class="card">
-                    <img src="/images/photo/2.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 0);" class="card">
-                    <img src="/images/photo/3.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-box col-xs-6 col-sm-4 col-md-3">
-                <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', 0);" class="card">
-                    <img src="/images/photo/1.jpg" alt="">
-                </a>
-            </div>
+            <?php $images = $album->getImages(); ?>
+            <?php $i=0; foreach($images as $img): if($img['isMain']) continue; ?>
+                <div class="card-box col-xs-6 col-sm-4 col-md-3">
+                    <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', <?= $i ?>);" class="card">
+                        <img src="<?= $img->getUrl('300x215') ?>" alt="">
+                    </a>
+                </div>
+            <?php $i++; endforeach; ?>
         </div>
     </div>
 </div>
@@ -83,15 +31,11 @@ use yii\web\JqueryAsset;
 
 <!-- Begin .fotorama -->
 <div class="fotorama fotorama--hidden" id="fotorama"
-     data-nav="false" data-allowfullscreen="true" data-fit="scaledown" data-hash="true" >
-    <a href="/images/photo/1.jpg" id="test1"
-       data-thumb="/images/photo/1.jpg"></a>
-    <a href="/images/photo/2.jpg"
-       data-thumb="/images/photo/2.jpg"></a>
-    <a href="/images/photo/v.jpg"
-       data-thumb="/images/photo/v.jpg"></a>
-    <a href="http://s.fotorama.io/4.jpg"
-       data-thumb="http://s.fotorama.io/4.jpg"></a>
+     data-nav="thumbs" data-allowfullscreen="true" data-fit="scaledown" data-hash="true" >
+    <?php foreach($images as $img): if($img['isMain']) continue; ?>
+        <a href="<?= $img->getUrl('1920x') ?>" id="p_<?= $img['id'] ?>"
+           data-thumb="<?= $img->getUrl('64x64') ?>"></a>
+    <?php endforeach; ?>
 </div>
 <!-- END .fotorama -->
 

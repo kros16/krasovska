@@ -13,18 +13,12 @@ use yii\web\JqueryAsset;
     <div class="row">
         <h2 class="text-center content-title"><span><?= $album->title ?></span></h2>
         <div class="cards clearfix">
+            <?php $images = $album->getImages(); ?>
+            <?php foreach($images as $img): if($img['isMain'] OR $img['urlAlias'] == 'placeHolder') continue; ?>
             <div class="card-box col-md-12 text-center">
-                <img src="/images/photo/1.jpg" alt="">
+                <img src="<?= $img->getUrl('924x') ?>" alt="">
             </div>
-            <div class="card-box col-md-12 text-center">
-                <img src="/images/photo/2.jpg" alt="">
-            </div>
-            <div class="card-box col-md-12 text-center">
-                <img src="/images/photo/1.jpg" alt="">
-            </div>
-            <div class="card-box col-md-12 text-center">
-                <img src="/images/photo/1.jpg" alt="">
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>

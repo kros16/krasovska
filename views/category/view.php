@@ -16,7 +16,7 @@ use yii\helpers\Url;
                             <div class="details">
                                 <h4><?= $album->title ?></h4>
                             </div>
-                            <?= Html::img("@web/images/albums/{$album->img}", ['alt' => $album->title]) ?>
+                            <?= Html::img($album->getImage()->getUrl('460x330'), ['alt' => $album->title]) ?>
                         </a>
                     </div>
                     <?php $i++ ?>
@@ -30,7 +30,7 @@ use yii\helpers\Url;
                                 <h4><?= $album->title ?></h4>
                                 <p><?= Yii::$app->formatter->asDate($album->shooting_date, 'MMMM, Y') ?></p>
                             </div>
-                            <?= Html::img("@web/images/albums/{$album->img}", ['alt' => $album->title]) ?>
+                            <?= Html::img($album->getImage()->getUrl('300x215'), ['alt' => $album->title]) ?>
                         </a>
                     </div>
                 <?php endif; ?>

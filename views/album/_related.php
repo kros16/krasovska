@@ -22,7 +22,7 @@ use yii\web\JqueryAsset;
                                     <p><?= Yii::$app->formatter->asDate($item->shooting_date, 'MMMM, Y') ?></p>
                                 <?php endif; ?>
                             </div>
-                            <?= Html::img("@web/images/albums/{$item->img}", ['alt' => $item->title]) ?>
+                            <?= Html::img($item->getImage()->getUrl('300x215'), ['alt' => $item->title]) ?>
                         </a>
                     </div>
                     <?php endforeach; ?>

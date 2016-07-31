@@ -26,11 +26,12 @@ class CategoryController extends AppController
     public function actionView($alias)
     {
         $category = Category::findOne(['alias' => $alias]);
-        if(empty($category))
+        if(empty($category) OR $category->visible == Category::VISIBLE_OFF)
             throw new HttpException(404, 'такой категории нет.');
 
 //        $albums = Album::find()->where(['category_id' => $category->id])->all();
-        $query = Album::find()->where(['category_id' => $category->id]);
+        $query = Album::find()->where(['category_id' => $category->id])
+            ->andWhere(['visible' => Album::VISIBLE_ON]);
         $pages = new Pagination(['totalCount' => $query->count(), 'forcePageParam' => false, 'pageSizeParam' => false]);
         $albums = $query->offset($pages->offset)->limit($pages->limit)->all();
         $this->setMeta($category->title, ['keywords' => $category->keywords, 'description' => $category->description]);
