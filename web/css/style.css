@@ -123,6 +123,11 @@ header{
     margin: 0;
 }
 
+.view-series img {
+     -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .19);
+     box-shadow: 0 0 5px rgba(0, 0, 0, .19);
+}
+
 .related {
     position: relative;
 }
@@ -139,6 +144,9 @@ header{
 }
 .related .swiper-button-prev {
     left: -41px;
+}
+.related .swiper-button-disabled {
+    display: none !important;
 }
 
 footer{

@@ -9,16 +9,20 @@ use yii\web\JqueryAsset;
 
 ?>
 
-<div class="container-fluid">
+<div class="view-series container-fluid">
     <div class="row">
         <h2 class="text-center content-title"><span><?= $album->title ?></span></h2>
         <div class="cards clearfix">
             <?php $images = $album->getImages(); ?>
-            <?php foreach($images as $img): if($img['isMain'] OR $img['urlAlias'] == 'placeHolder') continue; ?>
+            <?php $flag = null; foreach($images as $img): if($img['isMain'] OR $img['urlAlias'] == 'placeHolder') continue; $flag = true; ?>
             <div class="card-box col-md-12 text-center">
                 <img src="<?= $img->getUrl('924x') ?>" alt="">
             </div>
             <?php endforeach; ?>
+            <?php if(!$flag): ?>
+                <div class="alert alert-info" role="alert"><strong>Добро пожаловать!</strong> Совсем скоро тут будут новые фотографии.
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

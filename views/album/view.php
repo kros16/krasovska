@@ -14,13 +14,17 @@ use yii\web\JqueryAsset;
         <h2 class="text-center content-title"><span><?= $album->title ?></span></h2>
         <div class="cards clearfix">
             <?php $images = $album->getImages(); ?>
-            <?php $i=0; foreach($images as $img): if($img['isMain']) continue; ?>
+            <?php $flag = null; $i=0; foreach($images as $img): if($img['isMain'] OR $img['urlAlias'] == 'placeHolder') continue; $flag = true; ?>
                 <div class="card-box col-xs-6 col-sm-4 col-md-3">
                     <a href="javascript:sliderPopup('http://s.fotorama.io/1.jpg', <?= $i ?>);" class="card">
                         <img src="<?= $img->getUrl('300x215') ?>" alt="">
                     </a>
                 </div>
             <?php $i++; endforeach; ?>
+            <?php if(!$flag): ?>
+                <div class="alert alert-info" role="alert"><strong>Добро пожаловать!</strong> Совсем скоро тут будут новые фотографии.
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

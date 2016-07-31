@@ -55,11 +55,11 @@ $this->registerJs('
         nextButton: ".swiper-button-next",
         prevButton: ".swiper-button-prev",
         slidesPerView: 3,
-        centeredSlides: true,
+        //centeredSlides: true,
         paginationClickable: true,
         spaceBetween: 15,
         autoplay: 3000,
-        loop: true
+        //loop: true,
       });
     });
     /*]]>*/
